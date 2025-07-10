@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fxology | No Time Limit Prop Firm</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <!-- GSAP & Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+</head>
+<body>
+  <!-- Background Effects -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="math-symbols"></div>
+  <div class="particles"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-left" style="display: flex; align-items: center; gap: 32px;">
+        <div class="nav-brand">
+          <span class="logo"><span class="fx-green">Fx</span>ology</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link active"><i class="fas fa-house"></i> Home</a></li>
+          <li><a href="#" class="nav-link"><i class="fas fa-cogs"></i> How It Works</a></li>
+          <li><a href="#" class="nav-link"><i class="fas fa-layer-group"></i> Programs</a></li>
+          <li><a href="#" class="nav-link"><i class="fas fa-headset"></i> Support</a></li>
+          <li><a href="#" class="nav-link"><i class="fas fa-user-tie"></i> Careers</a></li>
+          <li><a href="#" class="nav-link"><i class="fas fa-handshake"></i> Become a Partner</a></li>
+          <li><button class="btn-link"><i class="fas fa-sign-in-alt"></i> Login/Register</button></li>
+          
+
+        </ul>
+      </div>
+      <div class="nav-right" style="display: flex; align-items: center; gap: 16px;">
+        <div class="nav-actions">
+          <div class="language-switcher">
+            <i class="fas fa-globe"></i>
+            <select>
+              <option>EN</option>
+              <option>ES</option>
+              <option>DE</option>
+            </select>
+          </div>
+          <button class="btn-primary">Start a Challenge <i class="fas fa-arrow-right btn-arrow"></i></button>
+          <button class="btn-outline">Free Trial</button>
+        </div>
+        <div class="nav-toggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="snap-container">
+    <main class="hero-section snap-section">
+      <div class="hero-content">
+        <span class="hero-subline"><span class="fx-green">Our Capital, Your </span><span class="success-tag"><i class="fas fa-trophy"></i> Success</span></span>        
+        <h1 class="hero-headline">
+          <span class="glow-green">No Time Limit Prop Firm</span>      
+        </h1>
+                  
+          <span class="glow-green">Conquer the market</span>
+        
+        <div class="hero-features">
+          <div class="feature-badge"><i class="fas fa-flask"></i> <span>The Lab™</span></div>
+          <div class="feature-badge"><i class="fas fa-bolt"></i> <span>Fast Progress</span></div>
+          <div class="feature-badge"><i class="fas fa-infinity"></i> <span>No Time Limit</span></div>
+          <div class="feature-badge"><i class="fas fa-trophy"></i> <span>Top Payouts</span></div>
+  </div>
+
+        <div class="hero-ctas">
+          <button class="btn-primary btn-large">Start a Challenge <i class="fas fa-arrow-right btn-arrow"></i></button>
+          <button class="btn-outline btn-large">Free Trial</button>
+        </div>
+      </div>
+    </main>
+    <!-- Add more <section class="snap-section">...</section> here for more pages -->
+    <section class="snap-section payment-section" id="payout-section">
+      <div class="payment">
+        <div class="scene">
+          <div class="card-bg-text" id="card-bg-text">
+            <span id="payout-bg">Payout</span>
+            <span id="certificate-bg">Certificate</span>
+          </div>
+          <div class="card" id="flip-card">
+            <div class="card-face front">         
+              <div class="fxology-logo" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                <i class="fas fa-trophy" style="font-size: 3.5rem; color: rgb(128, 175, 143); margin-bottom: 8px;"></i>
+                <span>Fxology</span>
+              </div>
+              <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-certificate" style="color: #71cfab; font-size: 1.5rem;"></i>
+                Certificate of Recognition
+              </h2>
+              <p>This certificate is awarded to</p>
+              <h3 style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                <i class="fas fa-user-circle" style="color: #71cfab; font-size: 1.3rem;"></i>
+                BASIM ALBAWE
+              </h3>
+              <p style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                <i class="fas fa-badge-check" style="color: #71cfab; font-size: 1.1rem;"></i>
+                For successfully passing the project evaluation.
+              </p>
+            </div>
+            <div class="card-face back">
+              <p>Back Side Placeholder Content</p>
+            </div>
+          </div>
+          <p class="card-info" id="card-info">when someone gets a payout, we have a certificate also. This says the amount they've widthdrawn.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Social Media Icons -->
+  <div class="social-icons" id="social-icons">
+    <span class="social-label">Follow us: </span>
+    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+    <a href="#" class="social-link"><i class="fab fa-telegram-plane"></i></a>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <span><i class="fas fa-info-circle cookie-info-icon"></i> This website uses cookies to ensure you get the best experience. This website uses cookies to ensure you get the best experience. <a href="#">Learn more</a></span>
+    <div class="cookie-actions">
+      <button class="btn-cookie-accept">Accept</button>
+      <button class="btn-cookie-decline">Decline</button>
+    </div>
+  </div>
+
+  <!-- Scroll to Explore Button -->
+  <button class="scroll-explore-btn" id="scroll-explore-btn"><span>Scroll to explore</span> <i class="fas fa-arrow-down"></i></button>
+
+  <script src="script.js"></script>
+  <script>
+document.getElementById('scroll-explore-btn').addEventListener('click', function() {
+  const sections = document.querySelectorAll('.snap-section');
+  const current = window.scrollY;
+  let nextSection = null;
+  for (let section of sections) {
+    const rect = section.getBoundingClientRect();
+    const top = rect.top + window.scrollY;
+    if (top > current + 10) { // 10px buffer
+      nextSection = section;
+      break;
+    }
+  }
+  if (nextSection) {
+    nextSection.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+  </script>
+  <script>
+// Hide social icons and cookie banner on payout section (second page)
+const payoutSection = document.getElementById('payout-section');
+const socialIcons = document.getElementById('social-icons');
+const cookieBanner = document.getElementById('cookie-banner');
+
+function handleSectionVisibility() {
+  const payoutRect = payoutSection.getBoundingClientRect();
+  // If payout section is mostly in view (top is near top of viewport)
+  if (payoutRect.top < window.innerHeight * 0.5 && payoutRect.bottom > window.innerHeight * 0.2) {
+    socialIcons.style.display = 'none';
+    cookieBanner.style.display = 'none';
+  } else {
+    socialIcons.style.display = '';
+    cookieBanner.style.display = '';
+  }
+}
+
+document.querySelector('.snap-container').addEventListener('scroll', handleSectionVisibility);
+window.addEventListener('resize', handleSectionVisibility);
+document.addEventListener('DOMContentLoaded', handleSectionVisibility);
+  </script>
+</body>
+</html>
