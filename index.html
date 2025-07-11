@@ -4,39 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fxology | No Time Limit Prop Firm</title>
+  <meta name="description" content="Fxology is a no time limit prop firm. Get funded, trade, and earn payouts with no time pressure. Join the best prop trading platform." />
+  <meta name="keywords" content="prop firm, trading, no time limit, funded trader, fxology, payouts, certificate" />
+  <link rel="canonical" href="https://fxology.com/" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fxology | No Time Limit Prop Firm" />
+  <meta property="og:description" content="Get funded, trade, and earn payouts with no time pressure. Join the best prop trading platform." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fxology.com/" />
+  <meta property="og:image" content="https://fxology.com/og-image.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fxology | No Time Limit Prop Firm" />
+  <meta name="twitter:description" content="Get funded, trade, and earn payouts with no time pressure. Join the best prop trading platform." />
+  <meta name="twitter:image" content="https://fxology.com/og-image.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <!-- GSAP & Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
   
 </head>
 <body>
+  <noscript>
+    <div style="background:#222;color:#fff;padding:16px;text-align:center;font-size:1.1rem;z-index:99999;position:relative;">
+      This site works best with JavaScript enabled. Some interactive features may be unavailable, but you can still view main content and information.
+    </div>
+  </noscript>
+  <div id="loading-overlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:#0F0F0F;display:flex;align-items:center;justify-content:center;transition:opacity 0.4s;"><div style="border:6px solid #222;border-top:6px solid #71cfab;border-radius:50%;width:48px;height:48px;animation:spin 1s linear infinite;"></div></div>
   <!-- Background Effects -->
   <canvas id="bg-canvas"></canvas>
   <div class="math-symbols"></div>
   <div class="particles"></div>
 
   <!-- Navigation Bar -->
-  <nav class="navbar">
+  <header class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="nav-container">
       <div class="nav-left" style="display: flex; align-items: center; gap: 32px;">
         <div class="nav-brand">
           <span class="logo"><span class="fx-green">Fx</span>ology</span>
         </div>
-        <ul class="nav-menu">
-          <li><a href="#" class="nav-link active"><i class="fas fa-house"></i> Home</a></li>
-          <li><a href="#" class="nav-link"><i class="fas fa-cogs"></i> How It Works</a></li>
-          <li><a href="#" class="nav-link"><i class="fas fa-layer-group"></i> Programs</a></li>
-          <li><a href="#" class="nav-link"><i class="fas fa-headset"></i> Support</a></li>
-          <li><a href="#" class="nav-link"><i class="fas fa-user-tie"></i> Careers</a></li>
-          <li><a href="#" class="nav-link"><i class="fas fa-handshake"></i> Become a Partner</a></li>
-          <li><button class="btn-link"><i class="fas fa-sign-in-alt"></i> Login/Register</button></li>
+        <ul class="nav-menu" role="menubar">
+          <li><a href="#" class="nav-link active" role="menuitem" aria-label="Home"><i class="fas fa-house"></i> Home</a></li>
+          <li><a href="#" class="nav-link" role="menuitem" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+          <li><a href="#" class="nav-link" role="menuitem" aria-label="Programs"><i class="fas fa-layer-group"></i> Programs</a></li>
+          <li><a href="#" class="nav-link" role="menuitem" aria-label="Support"><i class="fas fa-headset"></i> Support</a></li>
+          <li><a href="#" class="nav-link" role="menuitem" aria-label="Careers"><i class="fas fa-user-tie"></i> Careers</a></li>
+          <li><a href="#" class="nav-link" role="menuitem" aria-label="Become a Partner"><i class="fas fa-handshake"></i> Become a Partner</a></li>
+          <li><button class="btn-link" aria-label="Login or Register"><i class="fas fa-sign-in-alt"></i> Login/Register</button></li>
           <li class="nav-actions-mobile">
             <div class="language-switcher">
               <i class="fas fa-globe"></i>
@@ -64,96 +84,98 @@
           <button class="btn-primary">Start a Challenge <i class="fas fa-arrow-right btn-arrow"></i></button>
           <button class="btn-outline">Free Trial</button>
         </div>
-        <div class="nav-toggle">
+        <div class="nav-toggle" role="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-menu" tabindex="0">
           <span></span><span></span><span></span>
         </div>
       </div>
     </div>
-  </nav>
+  </header>
 
   <div class="snap-container">
-    <main class="hero-section snap-section">
-      <div class="hero-content">
-        <span class="hero-subline"><span class="fx-green">Our Capital, Your </span><span class="success-tag"><i class="fas fa-trophy"></i> Success</span></span>        
-        <h1 class="hero-headline">
-          <span class="glow-green">No Time Limit Prop Firm</span>      
-        </h1>
+    <main role="main" aria-label="Main Content">
+      <section class="hero-section snap-section" role="main" aria-label="Main Content">
+        <div class="hero-content">
+          <span class="hero-subline"><span class="fx-green">Our Capital, Your </span><span class="success-tag"><i class="fas fa-trophy"></i> Success</span></span>        
+          <h1 class="hero-headline">
+            <span class="glow-green">No Time Limit Prop Firm</span>      
+          </h1>
                   
-          <span class="glow-green">Conquer the market</span>
-        
-        <div class="hero-features">
-          <div class="feature-badge"><i class="fas fa-flask"></i> <span>The Lab™</span></div>
-          <div class="feature-badge"><i class="fas fa-bolt"></i> <span>Fast Progress</span></div>
-          <div class="feature-badge"><i class="fas fa-infinity"></i> <span>No Time Limit</span></div>
-          <div class="feature-badge"><i class="fas fa-trophy"></i> <span>Top Payouts</span></div>
-  </div>
+            <span class="glow-green">Conquer the market</span>
+          
+          <div class="hero-features">
+            <div class="feature-badge"><i class="fas fa-flask"></i> <span>The Lab™</span></div>
+            <div class="feature-badge"><i class="fas fa-bolt"></i> <span>Fast Progress</span></div>
+            <div class="feature-badge"><i class="fas fa-infinity"></i> <span>No Time Limit</span></div>
+            <div class="feature-badge"><i class="fas fa-trophy"></i> <span>Top Payouts</span></div>
+    </div>
 
-        <div class="hero-ctas">
-          <button class="btn-primary btn-large">Start a Challenge <i class="fas fa-arrow-right btn-arrow"></i></button>
-          <button class="btn-outline btn-large">Free Trial</button>
-        </div>
-      </div>
-    </main>
-    <!-- Add more <section class="snap-section">...</section> here for more pages -->
-    <section class="snap-section payment-section" id="payout-section">
-      <div class="payment">
-        <div class="scene">
-          <div class="card-bg-text" id="card-bg-text">
-            <span id="payout-bg">Payout</span>
-            <span id="certificate-bg">Certificate</span>
+          <div class="hero-ctas">
+            <button class="btn-primary btn-large">Start a Challenge <i class="fas fa-arrow-right btn-arrow"></i></button>
+            <button class="btn-outline btn-large">Free Trial</button>
           </div>
-          <div class="card" id="flip-card">
-            <div class="card-face front">         
-              <div class="fxology-logo" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                <i class="fas fa-trophy" style="font-size: 3.5rem; color: rgb(128, 175, 143); margin-bottom: 8px;"></i>
-                <span>Fxology</span>
+        </div>
+      </section>
+      <!-- Add more <section class="snap-section">...</section> here for more pages -->
+      <section class="snap-section payment-section" id="payout-section" role="region" aria-label="Payout and Certificate Card">
+        <div class="payment">
+          <div class="scene">
+            <div class="card-bg-text" id="card-bg-text">
+              <span id="payout-bg">Payout</span>
+              <span id="certificate-bg">Certificate</span>
+            </div>
+            <div class="card" id="flip-card">
+              <div class="card-face front">         
+                <div class="fxology-logo" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                  <i class="fas fa-trophy" style="font-size: 3.5rem; color: rgb(128, 175, 143); margin-bottom: 8px;"></i>
+                  <span>Fxology</span>
+                </div>
+                <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                  <i class="fas fa-certificate" style="color: #71cfab; font-size: 1.5rem;"></i>
+                  Certificate of Recognition
+                </h2>
+                <p>This certificate is awarded to</p>
+                <h3 style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                  <i class="fas fa-user-circle" style="color: #71cfab; font-size: 1.3rem;"></i>
+                  BASIM ALBAWE
+                </h3>
+                <p style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                  <i class="fas fa-badge-check" style="color: #71cfab; font-size: 1.1rem;"></i>
+                  For successfully passing the project evaluation.
+                </p>
               </div>
-              <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-                <i class="fas fa-certificate" style="color: #71cfab; font-size: 1.5rem;"></i>
-                Certificate of Recognition
-              </h2>
-              <p>This certificate is awarded to</p>
-              <h3 style="display: flex; align-items: center; gap: 8px; justify-content: center;">
-                <i class="fas fa-user-circle" style="color: #71cfab; font-size: 1.3rem;"></i>
-                BASIM ALBAWE
-              </h3>
-              <p style="display: flex; align-items: center; gap: 8px; justify-content: center;">
-                <i class="fas fa-badge-check" style="color: #71cfab; font-size: 1.1rem;"></i>
-                For successfully passing the project evaluation.
-              </p>
+              <div class="card-face back">
+                <p>Back Side Placeholder Content</p>
+              </div>
             </div>
-            <div class="card-face back">
-              <p>Back Side Placeholder Content</p>
-            </div>
+            <p class="card-info" id="card-info">when someone gets a payout, we have a certificate also. This says the amount they've widthdrawn.</p>
           </div>
-          <p class="card-info" id="card-info">when someone gets a payout, we have a certificate also. This says the amount they've widthdrawn.</p>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   </div>
   
   <!-- Social Media Icons -->
-  <div class="social-icons" id="social-icons">
+  <div class="social-icons" id="social-icons" role="region" aria-label="Social Media Links">
     <span class="social-label">Follow us: </span>
-    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-    <a href="#" class="social-link"><i class="fab fa-telegram-plane"></i></a>
+    <a href="#" class="social-link" aria-label="Discord"><i class="fab fa-discord"></i></a>
+    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
   </div>
 
   <!-- Cookie Consent Banner -->
-  <div class="cookie-banner" id="cookie-banner">
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie Consent Banner">
     <span><i class="fas fa-info-circle cookie-info-icon"></i> This website uses cookies to ensure you get the best experience. This website uses cookies to ensure you get the best experience. <a href="#">Learn more</a></span>
     <div class="cookie-actions">
-      <button class="btn-cookie-accept">Accept</button>
-      <button class="btn-cookie-decline">Decline</button>
+      <button class="btn-cookie-accept" aria-label="Accept Cookies">Accept</button>
+      <button class="btn-cookie-decline" aria-label="Decline Cookies">Decline</button>
     </div>
   </div>
 
   <!-- Scroll to Explore Button -->
-  <button class="scroll-explore-btn" id="scroll-explore-btn"><span>Scroll to explore</span> <i class="fas fa-arrow-down"></i></button>
+  <button class="scroll-explore-btn" id="scroll-explore-btn" aria-label="Scroll to explore next section"><span>Scroll to explore</span> <i class="fas fa-arrow-down"></i></button>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
   <script>
 // Scroll to next section, looping if at end
 const scrollBtn = document.getElementById('scroll-explore-btn');
@@ -204,5 +226,29 @@ document.querySelector('.snap-container').addEventListener('scroll', handleSecti
 window.addEventListener('resize', handleSectionVisibility);
 document.addEventListener('DOMContentLoaded', handleSectionVisibility);
   </script>
+  <script>
+// Hide loading overlay when DOM is ready
+window.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('loading-overlay').style.opacity = '0';
+  setTimeout(function() {
+    document.getElementById('loading-overlay').style.display = 'none';
+  }, 400);
+  // Add prefers-reduced-motion class to body if needed
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.body.classList.add('reduced-motion');
+  }
+});
+  </script>
+  <script>
+// Service Worker registration for offline support
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js');
+  });
+}
+</script>
+  <footer style="width:100vw;text-align:center;padding:16px 0;color:#aaa;background:#0F0F0F;">
+    &copy; 2024 Fxology. All rights reserved.
+  </footer>
 </body>
 </html>
