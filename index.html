@@ -37,8 +37,18 @@
           <li><a href="#" class="nav-link"><i class="fas fa-user-tie"></i> Careers</a></li>
           <li><a href="#" class="nav-link"><i class="fas fa-handshake"></i> Become a Partner</a></li>
           <li><button class="btn-link"><i class="fas fa-sign-in-alt"></i> Login/Register</button></li>
-          
-
+          <li class="nav-actions-mobile">
+            <div class="language-switcher">
+              <i class="fas fa-globe"></i>
+              <select>
+                <option>EN</option>
+                <option>ES</option>
+                <option>DE</option>
+              </select>
+            </div>
+            <button class="btn-primary">Start a Challenge <i class="fas fa-arrow-right btn-arrow"></i></button>
+            <button class="btn-outline">Free Trial</button>
+          </li>
         </ul>
       </div>
       <div class="nav-right" style="display: flex; align-items: center; gap: 16px;">
@@ -145,21 +155,31 @@
 
   <script src="script.js"></script>
   <script>
-document.getElementById('scroll-explore-btn').addEventListener('click', function() {
-  const sections = document.querySelectorAll('.snap-section');
-  const current = window.scrollY;
-  let nextSection = null;
-  for (let section of sections) {
-    const rect = section.getBoundingClientRect();
-    const top = rect.top + window.scrollY;
-    if (top > current + 10) { // 10px buffer
-      nextSection = section;
-      break;
+// Scroll to next section, looping if at end
+const scrollBtn = document.getElementById('scroll-explore-btn');
+const snapSections = document.querySelectorAll('.snap-section');
+scrollBtn.addEventListener('click', function() {
+  // Find the currently visible section
+  let currentIdx = 0;
+  let found = false;
+  for (let i = 0; i < snapSections.length; i++) {
+    const rect = snapSections[i].getBoundingClientRect();
+    if (!found && rect.top <= window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.2) {
+      currentIdx = i;
+      found = true;
     }
   }
-  if (nextSection) {
-    nextSection.scrollIntoView({ behavior: 'smooth' });
-  }
+  let nextIdx = (currentIdx + 1) % snapSections.length;
+  
+  // Use a more compatible scroll method for snap containers
+  const targetSection = snapSections[nextIdx];
+  const container = document.querySelector('.snap-container');
+  const targetTop = targetSection.offsetTop;
+  
+  container.scrollTo({
+    top: targetTop,
+    behavior: 'smooth'
+  });
 });
   </script>
   <script>
