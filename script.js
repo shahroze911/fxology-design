@@ -252,17 +252,27 @@ function animateHighlight(side) {
   }
 }
 // Mousemove for 3D tilt effect (window-centered, more dramatic)
+// NEW: Partial rotation effect based on card-relative mouse position, with GSAP animation
 card.addEventListener("mousemove", (e) => {
-  const windowCenterX = window.innerWidth / 2;
-  const windowCenterY = window.innerHeight / 2;
-  const x = (windowCenterX - e.clientX) / 25;
-  const y = (windowCenterY - e.clientY) / 25;
-  card.style.transform = `rotateY(${-x}deg) rotateX(${y}deg)`;
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left; // X position within the card
+  const y = e.clientY - rect.top;  // Y position within the card
+  const percentX = (x / rect.width) - 0.5; // -0.5 (left) to 0.5 (right)
+  const percentY = (y / rect.height) - 0.5; // -0.5 (top) to 0.5 (bottom)
+  const maxRotate = 22; // degrees, for a more dramatic partial rotation
+  const rotateY = percentX * maxRotate * 2; // -12deg to +12deg
+  const rotateX = -percentY * maxRotate * 2; // -12deg to +12deg (invert for natural tilt)
+  gsap.to(card, {
+    rotateY: rotateY,
+    rotateX: rotateX,
+    duration: 0.35,
+    ease: 'power2.out',
+    transformPerspective: 800,
+    overwrite: true
+  });
 
   // Flip logic (still based on card center)
-  const rect = card.getBoundingClientRect();
-  const localX = e.clientX - rect.left;
-  if (localX < rect.width / 2) {
+  if (x < rect.width / 2) {
     cardBgText.classList.add("highlight-payout");
     cardBgText.classList.remove("highlight-cert");
     card.classList.add("flip-left");
@@ -278,14 +288,20 @@ card.addEventListener("mousemove", (e) => {
     animateHighlight('cert');
   }
 });
-// Reset tilt and highlights on mouseleave
+// On mouseleave, smoothly reset rotation
 card.addEventListener("mouseleave", () => {
   cardBgText.classList.remove("highlight-payout");
   cardBgText.classList.remove("highlight-cert");
   card.classList.remove("flip-left");
   card.classList.remove("flip-right");
   cardInfo.textContent = defaultInfo;
-  card.style.transform = "rotateY(0deg) rotateX(0deg)";
+  gsap.to(card, {
+    rotateY: 0,
+    rotateX: 0,
+    duration: 0.5,
+    ease: 'power2.inOut',
+    overwrite: true
+  });
   animateHighlight();
 });
 // Right click (highlight certificate)
